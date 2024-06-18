@@ -57,7 +57,9 @@ RUN groupadd -r imgproxy \
   && chmod 777 /var/cache/fontconfig
 USER 999
 
+ENV PORT 8080
+ENV IMGPROXY_BIND :$PORT
 ENTRYPOINT [ "entrypoint.sh" ]
 CMD ["imgproxy"]
 
-EXPOSE 8080
+EXPOSE $PORT
